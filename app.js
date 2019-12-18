@@ -1,18 +1,16 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require("puppeteer");
 
-let productUrl = ''
+const getData = async () => {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
 
-(async () => {
-    const browser = await puppeteer.launch();
-    const page = await browser.newpage();
-    await page.goto(productUrl);
+  await page.goto(
+    "https://www.auchan.fr/sony-console-ps4-slim-500go-chassis-f-noire/p-c1077911"
+  );
 
-    let productData = await.page.evaluate(() => {
-        let productJson = {};
-        try { productJson.name = document.querySelector('h1.product-detail--title').innerText
-            
-        } catch (exception) {
-            
-        }
-    })
-})
+  browser.close();
+  return result;
+};
+getData().then(value => {
+  console.log(value);
+});
