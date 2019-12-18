@@ -8,6 +8,15 @@ const getData = async () => {
     "https://www.auchan.fr/sony-console-ps4-slim-500go-chassis-f-noire/p-c1077911"
   );
 
+  const result = await page.evaluate(() => {
+    let productName = document.querySelector(".product-detail--title")
+      .innerText;
+    let productPrice = document.querySelector(".product-price--formattedValue")
+      .innerText;
+
+    return { productName, productPrice };
+  });
+
   browser.close();
   return result;
 };
