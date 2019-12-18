@@ -13,8 +13,12 @@ const getData = async () => {
       .innerText;
     let productPrice = document.querySelector(".product-price--formattedValue")
       .innerText;
+    let productUrl = window.location.href;
+    let productImgUrl = document.querySelector(
+      ".x-scroller > label:nth-child(3) > a:nth-child(1) > img:nth-child(1)"
+    ).currentSrc;
 
-    return { productName, productPrice };
+    return { productName, productPrice, productUrl, productImgUrl };
   });
 
   browser.close();
